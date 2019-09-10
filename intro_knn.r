@@ -36,8 +36,8 @@ wbcd_n <- as.data.frame(lapply(wbcd[2:31], normalize))
 summary(wbcd_n$area_mean)
 
 # Create training and test data
-wbcd_train <- wbcd_n[1:469,]
-wbcd_test <- wbcd_n[470:569,]
+wbcd_train <- wbcd_n[1:469, ]
+wbcd_test <- wbcd_n[470:569, ]
 
 # Create labels for training and test data
 wbcd_train_labels <- wbcd[1:469, 1]
@@ -54,3 +54,9 @@ wbcd_test_pred <-
     cl = wbcd_train_labels,
     k = 21
   )
+
+# Load the "gmodels" library
+library(gmodels)
+
+# Create the cross tabulation of predicted vs actual
+CrossTable(x = wbcd_test_labels, y = wbcd_test_pred, prop.chisq = FALSE)
