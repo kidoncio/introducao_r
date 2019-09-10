@@ -1,7 +1,7 @@
 
 ## Vector
 subject_name <- c("John Doe", "Jane Doe", "Steve Graves")
-temperature <- c(98.1, 98.6, 101,4)
+temperature <- c(98.1, 98.6, 101.4)
 flu_status <- c(FALSE, FALSE, TRUE)
 
 temperature
@@ -63,3 +63,9 @@ pt_data <- data.frame(subject_name, temperature, flu_status, gender,
 
 # Display the data frame
 pt_data
+
+# Get a single column
+pt_data$subject_name
+
+# Get several columns by specifying a vector of names
+pt_data[c("temperature", "flu_status")]
